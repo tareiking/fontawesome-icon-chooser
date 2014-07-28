@@ -1,0 +1,6 @@
+.fa,
+.mceContentBody .fa,
+.mceContentBody .fa.mceNonEditable,
+.fa.mceNonEditable  {
+	font-family: "FontAwesome";
+}
