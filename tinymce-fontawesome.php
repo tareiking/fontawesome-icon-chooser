@@ -29,8 +29,8 @@ class Tinymce_Fontawesome {
 
 		add_filter( 'mce_external_plugins', array( $this, 'load_tinymce_fontawesome' ) );
 
-		add_action( 'wp_enqueue_style', array( $this, 'enqueue_scripts' ) );
-		add_action( 'admin_enqueue_scripts', array ($this, 'enqueue_admin_scripts' ) );
+		add_action( 'wp_enqueue_style', array( $this, 'enqueue_scripts' ), 11 );
+		add_action( 'admin_enqueue_scripts', array ($this, 'enqueue_admin_scripts' ), 11 );
 
 		add_filter( 'plugin_mce_css', array( $this, 'load_tinymce_css' ) );
 		add_filter( 'mce_buttons', array( $this, 'init_buttons') );
@@ -65,15 +65,19 @@ class Tinymce_Fontawesome {
 	 * Load Frontend Scripts
 	 */
 	function enqueue_scripts() {
-		wp_enqueue_style( 'fontawesome', '//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css' );
+		if ( ! wp_script_is( 'fontawesome', 'enqueued' ) ) {
+			wp_enqueue_style( 'fontawesome', '//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css' );
+		}
 	}
 
 	/**
 	 * Load Admin Styles
 	 */
 	function enqueue_admin_scripts() {
-		wp_enqueue_style( 'fontawesome', '//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css' );
-		add_editor_style( plugins_url( '/assets/styles.css', __FILE__ ) );
+		if ( ! wp_script_is( 'fontawesome', 'enqueued' ) ) {
+			wp_enqueue_style( 'fontawesome', '//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css' );
+			add_editor_style( plugins_url( '/assets/styles.css', __FILE__ ) );
+		}
 	}
 
 	/**
