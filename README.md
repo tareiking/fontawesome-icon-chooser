@@ -1,4 +1,4 @@
-TinyMCE FontAwesome
+FontAwesome Icon Chooser for WP Visual Editor
 ===================
 
 Adds FontAwesome icons to the WordPress Widget and Content Editor areas.
