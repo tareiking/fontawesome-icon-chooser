@@ -2,7 +2,7 @@
 /**
  * Plugin Name: FontAwesome Icon Chooser for WP Visual Editor
  * Plugin URI: http://www.sennza.com.au/
- * Description: #TODO
+ * Description: Enable FontAwesome Icons from any WP Visual Editor, including widgets and the content editor.
  * Version: 0.1
  * Author: Sennza Pty Ltd, Bronson Quick, Ryan McCue, Lachlan MacPherson, Tarei King
  * Author URI: http://www.sennza.com.au/
