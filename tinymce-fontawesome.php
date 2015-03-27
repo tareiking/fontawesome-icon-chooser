@@ -10,7 +10,9 @@
  */
 
 // Exit if this file is directly accessed
-if ( !defined( 'ABSPATH' ) ) exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 class Tinymce_Fontawesome {
 
@@ -30,10 +32,10 @@ class Tinymce_Fontawesome {
 		add_filter( 'mce_external_plugins', array( $this, 'load_tinymce_fontawesome' ) );
 
 		add_action( 'wp_enqueue_style', array( $this, 'enqueue_scripts' ), 11 );
-		add_action( 'admin_enqueue_scripts', array ($this, 'enqueue_admin_scripts' ), 11 );
+		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ), 11 );
 
 		add_filter( 'plugin_mce_css', array( $this, 'load_tinymce_css' ) );
-		add_filter( 'mce_buttons', array( $this, 'init_buttons') );
+		add_filter( 'mce_buttons', array( $this, 'init_buttons' ) );
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_css' ) );
 	}
@@ -47,8 +49,8 @@ class Tinymce_Fontawesome {
 		$plugins = array( 'fontawesome', 'noneditable' );
 		$plugins_array = array();
 
-		foreach ($plugins as $plugin ) {
-			$plugins_array[ $plugin ] = plugins_url('lib/fontawesome', __FILE__) . '/plugin.min.js';
+		foreach ( $plugins as $plugin ) {
+			$plugins_array[ $plugin ] = plugins_url( 'lib/fontawesome', __FILE__ ) . '/plugin.min.js';
 		}
 		return $plugins_array;
 	}
@@ -57,7 +59,7 @@ class Tinymce_Fontawesome {
 	 * Add button to TinyMCE
 	 */
 	function init_buttons( $buttons ){
-		array_push($buttons, "fontawesome");
+		array_push( $buttons, 'fontawesome' );
 		return $buttons;
 	}
 
@@ -105,7 +107,7 @@ class Tinymce_Fontawesome {
 
 		$defaults = wp_parse_args( $filtered_args, $defaults );
 
-		if ( $defaults['enqueue_css'] == false ) {
+		if ( false == $defaults['enqueue_css'] ) {
 			return;
 		}
 
