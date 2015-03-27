@@ -10,7 +10,9 @@
  */
 
 // Exit if this file is directly accessed
-if ( ! defined( 'ABSPATH' ) ) exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 class Tinymce_Fontawesome {
 
