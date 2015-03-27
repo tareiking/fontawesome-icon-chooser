@@ -105,7 +105,7 @@ class Tinymce_Fontawesome {
 
 		$defaults = wp_parse_args( $filtered_args, $defaults );
 
-		if ( $defaults['enqueue_css'] == false ) {
+		if ( false == $defaults['enqueue_css'] ) {
 			return;
 		}
 
