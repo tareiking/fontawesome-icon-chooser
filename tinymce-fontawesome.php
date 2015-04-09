@@ -45,7 +45,7 @@ class Tinymce_Fontawesome {
 	 *
 	 * @todo : Add checks to load on wp_admin only
 	 */
-	function load_tinymce_fontawesome () {
+	public function load_tinymce_fontawesome() {
 		$plugins = array( 'fontawesome', 'noneditable' );
 		$plugins_array = array();
 
@@ -58,7 +58,7 @@ class Tinymce_Fontawesome {
 	/**
 	 * Add button to TinyMCE
 	 */
-	function init_buttons( $buttons ){
+	public function init_buttons( $buttons ) {
 		array_push( $buttons, 'fontawesome' );
 		return $buttons;
 	}
@@ -66,7 +66,7 @@ class Tinymce_Fontawesome {
 	/**
 	 * Load Frontend Scripts
 	 */
-	function enqueue_scripts() {
+	public function enqueue_scripts() {
 		if ( ! wp_script_is( 'fontawesome', 'enqueued' ) ) {
 			wp_enqueue_style( 'fontawesome', '//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css' );
 		}
@@ -75,7 +75,7 @@ class Tinymce_Fontawesome {
 	/**
 	 * Load Admin Styles
 	 */
-	function enqueue_admin_scripts() {
+	public function enqueue_admin_scripts() {
 		if ( ! wp_script_is( 'fontawesome', 'enqueued' ) ) {
 			wp_enqueue_style( 'fontawesome', '//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css' );
 			add_editor_style( plugins_url( '/assets/styles.css', __FILE__ ) );
@@ -87,7 +87,7 @@ class Tinymce_Fontawesome {
 	 *
 	 * @todo : there seems to be a fair amount of unDRY going on with FA
 	 */
-	function load_tinymce_css( $mce_css ){
+	public function load_tinymce_css( $mce_css ) {
 		$mce_css .= plugins_url( '//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css' );
 
 		return $mce_css;
@@ -98,7 +98,7 @@ class Tinymce_Fontawesome {
 	 *
 	 * We've got some default styles which need to be loaded in order to view icons on the FrontEnd
 	 */
-	function enqueue_css( $args ){
+	public function enqueue_css( $args ) {
 		$defaults = array(
 			'enqueue_css' => true,
 		);
