@@ -16,18 +16,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class Tinymce_Fontawesome {
 
-	private static $instance;
+	protected static $instance;
 
-	static function get_instance() {
+	public static function get_instance() {
 
 		if ( ! self::$instance ) {
-			self::$instance = new Tinymce_Fontawesome;
+			self::$instance = new self();
 		}
 
 		return self::$instance;
 	}
 
-	public function __construct() {
+	protected function __construct() {
 
 		add_filter( 'mce_external_plugins', array( $this, 'load_tinymce_fontawesome' ) );
 
